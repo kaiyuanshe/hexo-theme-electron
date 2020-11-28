@@ -1458,3 +1458,195 @@ h3 code {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.PRIMER-REMOVE-ME .CircleBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 5px rgba(28, 28, 28, 0.15);
+}
+.PRIMER-REMOVE-ME .CircleBadge-icon {
+    max-width: 60% !important;
+    height: auto !important;
+    max-height: 55% !important;
+}
+.PRIMER-REMOVE-ME .CircleBadge--large {
+    width: 128px;
+    height: 128px;
+}
+
+.app-container {
+    margin-top: 32px;
+}
+@media (min-width: 768px) {
+    .app-container {
+        display: flex;
+    }
+}
+.app-container .app-meta {
+    display: flex;
+    flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+    .app-container .app-meta.sticky {
+        position: sticky;
+        top: 20px;
+    }
+}
+@media (min-width: 768px) {
+    .app-container .app-meta {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}
+.app-container .app-meta .app-meta-entry {
+    font-size: 14px;
+    padding: 16px 0;
+    border-top: 1px #e0e5e6 solid;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.app-container .app-meta .app-meta-entry .app-keyword {
+    white-space: normal;
+    overflow: auto;
+}
+.app-container .app-meta .app-meta-entry-downloads {
+    overflow: auto;
+    white-space: normal;
+}
+@media (min-width: 544px) {
+    .app-container .app-meta .app-meta-entry {
+        width: 50%;
+    }
+}
+@media (min-width: 768px) {
+    .app-container .app-meta .app-meta-entry {
+        width: 100%;
+    }
+}
+.app-container .app-meta .app-meta-entry:nth-child(1) {
+    border-top: none;
+}
+.app-container .app-meta .app-meta-entry:nth-child(2) {
+    border-top: 1px #e0e5e6 solid;
+}
+@media (min-width: 544px) {
+    .app-container .app-meta .app-meta-entry:nth-child(2) {
+        border-top: none;
+    }
+}
+@media (min-width: 768px) {
+    .app-container .app-meta .app-meta-entry:nth-child(2) {
+        border-top: 1px #e0e5e6 solid;
+    }
+}
+.app-container .app-meta .app-meta-entry h5 {
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+.app-container .app-boxes {
+    flex: 1;
+}
+@media (min-width: 768px) {
+    .app-container .app-boxes {
+        max-width: calc(100% - 300px);
+    }
+}
+.app-container .app-boxes .app-box {
+    border: 1px solid #d1d9db;
+    border-radius: 5px;
+    box-shadow: 0 0 16px -4px rgba(0, 0, 0, 0.28);
+    margin-bottom: 32px;
+}
+.app-container .app-boxes .app-box:last-child {
+    margin-bottom: 0;
+}
+.app-container .app-keyword {
+    padding: 0.2em 0.4em;
+    font-size: 0.85em;
+    border-radius: 3px;
+    background-color: #f6f8f8;
+}
+.app-container .app-keyword:hover {
+    text-decoration: none;
+    background-color: #ebefef;
+}
+.app-container .app-tagname {
+    margin-left: 0.5em;
+    color: #7c9398;
+}
+.app-container .app-download {
+    display: block;
+    padding: 0.4em 0.8em;
+    border-radius: 3px;
+    margin: 0 0.5em 0.5em 0;
+    line-height: 1.7;
+    border: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    direction: rtl;
+    text-align: left;
+    color: white !important;
+}
+@media (min-width: 768px) {
+    .app-container .app-download {
+        display: inline-block;
+    }
+}
+.app-container .app-download:hover {
+    text-decoration: none;
+    border-color: #13ccf1;
+}
+.app-container .app-readme {
+    padding: 3rem;
+}
+.app-container .app-readme > div > article > *:first-child {
+    margin-top: 0 !important;
+}
+.app-container .app-readme .octicon-link {
+    display: none;
+}
+.app-container .app-screenshots .active-screenshot {
+    padding: 16px;
+}
+.app-container .app-screenshots .all-screenshots {
+    height: 128px;
+    border-top: 1px solid #d1d9db;
+    white-space: nowrap;
+    overflow-y: auto;
+}
+.app-container .app-screenshots .all-screenshots .app-screenshot-thumb {
+    border-right: 1px solid #d1d9db;
+    display: inline-flex;
+    flex-direction: column;
+    width: 196px;
+    cursor: pointer;
+    overflow: hidden;
+    height: 126px;
+}
+.app-container .app-screenshots .all-screenshots .app-screenshot-thumb img {
+    height: 110px;
+    margin: 8px;
+}
+.app-container
+    .app-screenshots
+    .all-screenshots
+    .app-screenshot-thumb
+    img.caption {
+    height: 84px;
+}
+.app-container
+    .app-screenshots
+    .all-screenshots
+    .app-screenshot-thumb
+    .app-screenshot-caption {
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0 8px;
+}
