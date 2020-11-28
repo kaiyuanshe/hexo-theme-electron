@@ -1,0 +1,39 @@
+{
+    "name": "hexo-theme-electron",
+    "version": "1.0.0",
+    "license": "MIT",
+    "author": "shiy2008@gmail.com",
+    "description": "a Hexo theme forked from Electron.js official Web-site, built for kinds of NGOs.",
+    "keywords": [
+        "hexo",
+        "theme",
+        "electron",
+        "website",
+        "ngo"
+    ],
+    "peerDependencies": {
+        "icalendar": "^0.7.1"
+    },
+    "devDependencies": {
+        "husky": "^4.3.0",
+        "lint-staged": "^10.5.2",
+        "prettier": "^2.2.1"
+    },
+    "prettier": {
+        "singleQuote": true,
+        "trailingComma": "none",
+        "arrowParens": "avoid",
+        "tabWidth": 4
+    },
+    "lint-staged": {
+        "*.{md,css,js,json,yml}": "prettier --write"
+    },
+    "scripts": {
+        "test": "lint-staged"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm test"
+        }
+    }
+}

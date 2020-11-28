@@ -1,0 +1,80 @@
+language:
+    en-US:
+        local: English
+    ja-JP:
+        local: 日本語
+        english: Japanese
+    es-ES:
+        local: Español
+        english: Spanish
+    zh-CN:
+        local: 中文
+        english: Chinese Simplified
+        default: true
+    tr-TR:
+        local: Türkçe
+        english: Turkish
+    id-ID:
+        local: Indonesian
+    fil-PH:
+        local: Filipino
+    fr-FR:
+        local: Français
+        english: French
+    ru-RU:
+        local: Русский
+        english: Russian
+    ko-KR:
+        local: 한국어
+        english: Korean
+    it-IT:
+        local: Italiano
+        english: Italian
+    pt-BR:
+        local: Português
+        english: Portuguese
+    de-DE:
+        local: Deutsch
+        english: German
+    uk-UA:
+        local: Українська
+        english: Ukrainian
+    zh-TW:
+        local: 中文
+        english: Chinese Traditional
+    pl-PL:
+        local: język polski
+        english: Polish
+    bg-BG:
+        local: български език
+        english: Bulgarian
+    hi-IN:
+        local: हिन्दी
+        english: Hindi
+    nl-NL:
+        local: Nederlands
+        english: Dutch
+    vi-VN:
+        local: Tiếng Việt
+        english: Vietnamese
+    ar-SA:
+        local: اللغة العربية
+        english: Arabic
+    fa-IR:
+        local: فارسی
+        english: Persian
+    cs-CZ:
+        local: čeština
+        english: Czech
+    th-TH:
+        local: ไทย
+        english: Thai
+    he-IL:
+        local: עברית
+        english: Hebrew
+    ro-RO:
+        local: limba română
+        english: Romanian
+    tl-PH:
+        local: Wikang Tagalog
+        english: Tagalog

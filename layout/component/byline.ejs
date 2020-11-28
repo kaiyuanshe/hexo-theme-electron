@@ -1,0 +1,30 @@
+<% const {date, authors = [], categories, tags } = post; %>
+
+<div class="blog-byline mt-2 mb-4 d-flex justify-content-between align-items-center">
+  <span class="blog-index-time"><%= full_date( date ) %></span>
+
+<% for (let author of authors) { %>
+  <a class="author-link ml-3 text-center" href="https://github.com/<%= author %>">
+    <img
+      class="avatar mr-2"
+      style="max-width: 2.25rem"
+      src="https://github.com/<%= author %>.png?size=36"
+      alt="<%= author %>"
+    >
+    <%= author %>
+  </a>
+<% } %>
+
+  <span>
+    <% categories.forEach(category => { %>
+      <a class="badge badge-primary" href="<%= category.path %>">
+        <%= category.name %>
+      </a>
+    <% }) %>
+    <% tags.forEach(tag => { %>
+      <a class="badge badge-primary" href="<%= tag.path %>">
+          <%= tag.name %>
+      </a>
+    <% }) %>
+  </span>
+</div>

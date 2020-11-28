@@ -1,0 +1,35 @@
+<%
+const {
+  permalink, title, description, date, updated, start, end, address, links
+} = post;
+
+const event = eventOf(title, description, start, end, address);
+%>
+<h2 class="d-flex justify-content-between align-items-center">
+  活动简讯
+  <span>
+    <a class="btn btn-primary" download="<%= title %>.ics"
+      href="<%= toDataURI(event + '', 'text/calendar') %>">
+      添加日历
+    </a>
+    <% for (let key in links) { %>
+      <a class="btn btn-primary" target="_blank" href="<%= links[key] %>">
+        <%= key %>
+      </a>
+    <% } %>
+  </span>
+</h2>
+<ul>
+  <li>时间：<%= full_date(start || date) %> ~ <%= full_date(end || updated) %></li>
+  <li>地点：<%= address %></li>
+</ul>
+<%
+if ( address ) { %>
+  <%-
+    include('./marker_map', {
+      markers: [{
+        title, URL: permalink, address
+      }]
+    })
+  %><%
+} %>

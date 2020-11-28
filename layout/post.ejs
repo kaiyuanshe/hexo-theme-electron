@@ -1,0 +1,86 @@
+<style>
+  .blog-post hr:first-of-type {
+    display: block;
+  }
+</style>
+
+<% const { title, original, description, content, files, prev, next } = page; %>
+
+<section class="page-section blog-post">
+  <div class="container">
+    <h1><%= title %></h1>
+
+    <% if ( description ) { %>
+    <blockquote class="blockquote">
+      <p class="mb-0"><%= description %></p>
+    </blockquote>
+    <% } %>
+
+    <%- include('./component/byline', { post: page }) %>
+
+    <% if ( original ) { %>
+    <blockquote>
+      <p>
+        原文链接：<a target="_blank" href="<%= original %>">
+          <%= original %>
+        </a>
+      </p>
+    </blockquote>
+    <% } %>
+
+    <details>
+      <summary>正文大纲</summary>
+      <%- toc(content, {list_number: false}) %>
+    </details>
+
+    <main><%- content %></main>
+
+    <% if (is_post()  &&  hasCategory(page, 'Activity')) { %>
+    <hr>
+    <%- include('./component/activity', {post: page}) %>
+    <% }
+
+    if ( files ) { %>
+    <hr>
+    <h2>资料下载</h2>
+    <ol>
+      <%- include('./component/files', {path, files}) %>
+    </ol>
+    <% } %>
+  </div>
+</section>
+
+<nav class="page-section text-center">
+  <div class="btn-group" role="group" aria-label="Post navigator">
+    <% if ( prev ) { %>
+    <a class="btn btn-secondary" role="button" href="<%= prev.path %>">
+      &lt; <%= prev.title %>
+    </a>
+    <% }
+       if ( next ) { %>
+    <a class="btn btn-secondary" role="button" href="<%= next.path %>">
+      <%= next.title %> &gt;
+    </a>
+    <% } %>
+  </div>
+</nav>
+
+<script>
+(function () {
+
+  var path = self.location.href.split('#')[0];
+
+  $('details > .toc a[href]').attr('href', function (_, value) {
+
+    return path + value;
+  });
+
+  $('.blog-post').find('h1, h2, h3, h4, h5, h6').append(function () {
+
+    if ( this.id.trim() )
+      return '<a class="header-link" title="Permalink" href="' +
+        path + '#' + this.id +
+        '"><span class="octicon octicon-link"></span></a>';
+  });
+})();
+</script>

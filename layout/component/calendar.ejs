@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.css">
+<style>
+  .fc-bg, .fc-content-skeleton thead {
+    color: transparent;
+  }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/locale/zh-cn.js"></script>
+
+<div id="Calendar"></div>
+
+<template>
+<%-
+  JSON.stringify(
+    posts.map(({ title, description, permalink, categories, start, end }) => {
+
+      if (categories.data.some(item => RegExp(item.name, 'i').test(type)))
+        return {
+          title,
+          detail: description,
+          url:    permalink,
+          start,
+          end
+        };
+    }).filter( Boolean )
+  )
+%>
+</template>
+
+<script>
+  $('#Calendar').fullCalendar({
+    themeSystem: 'bootstrap4',
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+    eventLimit: true,
+    events: JSON.parse(
+      document.currentScript.previousElementSibling.innerHTML.trim()
+    ),
+    eventRender: function(eventObj, $el) {
+      $el.popover({
+        title: eventObj.title,
+        content: eventObj.detail || '',
+        trigger: 'hover',
+        placement: 'top',
+        container: 'body'
+      });
+    }
+  });
+</script>
+
+<%- page.content %>

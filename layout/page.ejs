@@ -1,0 +1,59 @@
+<style>
+  .posts-list > li > section img {
+    display: block;
+    margin: 1rem auto;
+  }
+</style>
+<%
+const { title } = config,
+  { posts = [], prev_link, next_link } = page;
+%>
+<div class="subtron">
+  <div class="container-narrow">
+    <h1><%= title %> 博客</h1>
+    <p class="lead mb-3">
+      所有来自 <%= title %> 团队和社区的最新消息
+    </p>
+  </div>
+</div>
+
+<section class="page-section">
+  <div class="container-narrow">
+    <ul class="posts-list blog-index">
+    <% posts.forEach(post => { %>
+      <li class="mb-3 mb-md-4 mb-lg-6">
+        <h2>
+          <a class="blog-index-link mr-2" href="<%= post.path %>">
+            <%= post.title %>
+          </a>
+          <%- include('./component/byline', { post }) %>
+        </h2>
+        <section>
+          <%- (post.excerpt || strip_html(post.content).slice(0, 300)) %>
+        </section>
+        <p>
+          <a href="<%= post.path + '#more' %>">
+            Read More
+            <span class="octicon octicon-arrow-small-right"></span>
+          </a>
+        </p>
+      </li>
+    <% }) %>
+    </ul>
+  </div>
+</section>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    <% if (prev_link) { %>
+      <li class="page-item">
+        <a class="page-link" href="<%= prev_link %>">Previous</a>
+      </li>
+    <% } %>
+    <% if (next_link) { %>
+      <li class="page-item">
+        <a class="page-link" href="<%= next_link %>">Next</a>
+      </li>
+    <% } %>
+  </ul>
+</nav>
